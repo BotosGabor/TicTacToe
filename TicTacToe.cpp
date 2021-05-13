@@ -1,8 +1,10 @@
+#include <iostream>
 #include <math.h>
 #include <windows.h>
 #include "graphics.hpp"
 #include "TicTacToe.hpp"
 using namespace genv;
+using namespace std;
 
 TicTacToe::TicTacToe() {
     memset(cells, ' ', sizeof(cells));
@@ -12,6 +14,15 @@ TicTacToe::TicTacToe() {
 void TicTacToe::draw() {
     v.grid();
     if (game_over()) {
+        if (winner == ' ') cout << "Draw!\n\n";
+        else cout << "Winner: " << winner << "!\n\n";
+        for (int h = 0; h < G; h++) {
+            for (int w = 0; w < G; w++)
+                if (cells[h][w] == ' ') cout << "- ";
+                else cout << cells[h][w] << ' ';
+            cout << "\n";
+        }
+        cout << endl;
         v.icon(winner, 0, 0, S);
         gout << refresh;
         Sleep(3000);
