@@ -1,11 +1,9 @@
 #ifndef VISUAL_HPP_INCLUDED
 #define VISUAL_HPP_INCLUDED
 
-const int G = 20, S = 1050;
-
 class Visual {
 public:
-    void grid();
+    void background(int lx, int ly, int sx, int sy);
     void icon(char c, int lx, int ly, int s);
 };
 

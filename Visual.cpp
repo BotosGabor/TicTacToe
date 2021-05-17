@@ -3,11 +3,9 @@
 #include "Visual.hpp"
 using namespace genv;
 
-void Visual::grid() {
-    gout << color(16,16,16) << move_to(0, 0) << box(S, S) << color(32,32,32);
-    for (int i = 1; i < G; i++)
-        gout << move_to(0, i*S/G - 1) << box(S, 2) <<
-                move_to(i*S/G - 1, 0) << box(2, S);
+void Visual::background(int lx, int ly, int sx, int sy) {
+    gout << color(32,32,32) << move_to(lx,ly) << box(sx,sy) <<
+            color(16,16,16) << move_to(lx+1, ly+1) << box(sx-2, sy-2);
 }
 
 void Visual::icon(char c, int lx, int ly, int s) {

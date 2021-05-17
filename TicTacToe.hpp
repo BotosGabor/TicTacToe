@@ -1,21 +1,22 @@
-#ifndef GAME_FIELD_HPP_INCLUDED
-#define GAME_FIELD_HPP_INCLUDED
+#ifndef TICTACTOE_HPP_INCLUDED
+#define TICTACTOE_HPP_INCLUDED
 
 #include "graphics.hpp"
-#include "Visual.hpp"
+#include "Square.hpp"
+#include "Widget.hpp"
 
-class TicTacToe {
-    Visual v;
-    char cells[G][G];
-    char next_icon = 'o';
+const int G = 30;
+
+class TicTacToe : public Widget {
+    int s;
+    Square* squares[G][G];
     char winner = ' ';
-    void draw();
-    void handle(genv::event ev);
     bool winning_pos(int x, int y);
     bool game_over();
-    void event_loop();
 public:
     TicTacToe();
+    void draw();
+    void handle(genv::event ev);
 };
 
-#endif // GAME_FIELD_HPP_INCLUDED
+#endif // TICTACTOE_HPP_INCLUDED
